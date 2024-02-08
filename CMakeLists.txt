@@ -1,11 +1,19 @@
-cmake_minimum_required(VERSION 3.0)
-project(HeOJ)
+# 设置cmake最低版本要求
+cmake_minimum_required(VERSION 3.5)
 
-# 添加可执行文件的源文件
-add_executable(sandbox sanbox/sandbox.cpp)
+# 项目名称
+project(HeOJ-sandbox)
 
-# 设置编译后的可执行文件存放位置
-set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+add_library(argtable3 ./lib/argtable3/argtable3.c ./lib/argtable3/argtable3.h)
 
-# 将可执行文件安装到指定目录
-install(TARGETS evaluator DESTINATION bin)
+add_executable(judge_machine src/main.c
+        include/base.h
+        src/base.c
+        src/time.c
+        include/time.h
+        include/parser.h
+        src/parser.c
+        include/utils.h
+        src/utils.c)
+
+target_link_libraries(judge_machine PRIVATE argtable3)
