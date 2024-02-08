@@ -8,6 +8,9 @@
 #define  PROJECT_NAME "sandbox"
 #define VERSION 0x010000
 
+#define MAX_ARG 256
+#define MAX_ENV 256
+
 #include "sys/resource.h"
 
 
@@ -21,6 +24,8 @@ struct config {
     char* executable_path;  // 可执行文件路径：用户代码编译后存放的位置
     char* output_path;      // 输出文件路径：程序的输出结果存放到该文件
     char* input_path;       // 输入文件路径：一般就是程序的测试样例参数
+    char* exe_args[MAX_ARG + 1];        // 传递给程序的参数
+    char* env_args[MAX_ENV + 1];        // 程序运行的环境参数
 };
 
 // 运行结果

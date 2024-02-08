@@ -12,7 +12,7 @@
 #include "../lib/argtable3/argtable3.h"
 
 // 传入参数个数上限
-#define NUM_ALLOWED_ARG 10
+#define NUM_ALLOWED_ARG 15
 
 // 配置参数
 #define INT_PLACEHOLDER "<n>"
@@ -27,11 +27,13 @@ struct arg_int* max_cpu_time;
 struct arg_int* max_real_time;
 struct arg_int* max_proc_num;
 
-// 设置内存消耗上限、可执行文件路径、输出文件路径、输入文件路径
+// 设置内存消耗上限、可执行文件路径、输出文件路径、输入文件路径、运行参数
 struct arg_str* max_memory_size;
 struct arg_str* executable_path;
 struct arg_str* output_path;
 struct arg_str* input_path;
+struct arg_str* exe_args;
+struct arg_str* env_args;
 
 // 设置哨兵参数，表示到达参数列表末尾
 struct arg_end* end;

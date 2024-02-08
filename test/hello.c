@@ -3,7 +3,12 @@
 //
 #include "printf.h"
 
-int main(void) {
+int main(int argc, char* argv[]) {
+    if(argc == 0) {
+        printf("at least one argument\n");
+        return 1;
+    }
+    printf("I got the %s\n", argv[1]);
     printf("hello world!\n");
     return 0;
 }
